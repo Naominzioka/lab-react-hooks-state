@@ -1,107 +1,170 @@
-# Lab: Building a Dynamic Shopping App with React Hooks
+# 🛒 React Hooks State Lab - Shopping App
 
-## Introduction
+A dynamic shopping application built with React and React Hook to practice state management using `useState`. This project demonstrates core concepts of modern React development including component state, event handling, and conditional rendering.
 
-Your company is developing a **new grocery shopping app** to improve the shopping experience for customers. You have been assigned to implement **three key features**:
+## 📋 Features
 
-1. **Dark Mode Toggle** – Users can switch between light and dark mode.
-2. **Add to Cart** – Users can add items to the shopping cart.
-3. **Category Filtering** – Users can filter products by category.
+- **Dark Mode Toggle** – Switch between light and dark themes
+- **Product Filtering** – Filter products by category (All, Fruits, Dairy)
+- **Shopping Cart** – Add items to cart and view them in a list
+- **Responsive UI** – Built with Material-UI components
+- **Dynamic Updates** – Cart and UI update in real-time as items are added
 
-Your task is to implement these features using **React Hooks (`useState`)** while ensuring the app is functional and visually consistent.
 
----
+## 🚀 Quick Start
 
-## **Challenge**
-1. Implement a **dark mode toggle**.
-2. Allow users to **add items** from a shopping cart.
-3. Implement **category-based filtering** for the shopping list.
+### Prerequisites
+- Node.js (v16 or higher)
+- npm or yarn
 
-## **Bonus Challenge**
-4. Display a **cart total** showing the number of items added.
+### Installation
 
----
-
-## **Instructions**
-
-### **1️⃣ Fork and Clone the Repository**
-1. **Fork** the provided GitHub repository.
-2. **Clone** the forked repository to your local machine:
-   ```sh
-   git clone <your-forked-repository-url>
-   cd react-hooks-state-lab
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd lab-react-hooks-state
    ```
-3. Open the project in **VSCode**.
-4. Install dependencies:
-   ```sh
+
+2. **Install dependencies**
+   ```bash
    npm install
    ```
-5. Start the development server:
-   ```sh
+
+3. **Start the development server**
+   ```bash
    npm run dev
    ```
 
-### **2️⃣ Implement the Dark Mode Toggle**
-- Implement a **button** that toggles between light and dark mode.
-- The text of the toggle button should change dynamically.
-   - Feel free to also play with styling! However, you'll only be tested on the text of the dark mode toggle button.
-- Use the **useState hook** to manage the current theme.
+4. **Open in browser**
+   - The app will be available at `http://localhost:5173` (Vite default)
 
-### **3️⃣ Implement the Add to Cart Feature**
-- Each product should have an **"Add to Cart"** button.
-- Clicking the button should add the item to the cart.
-- The cart should display a **list of added items** with the text 'Item is in your cart' such as 'Milk is in your cart.'
+## Project Structure
 
-### **4️⃣ Implement the Category Filter**
-- Create a **dropdown menu** to filter products by category.
-- When a user selects a category, **only matching products** should be displayed.
-- Use **state management (`useState`)** to track the selected category.
+```
+src/
+├── App.jsx                 # Main app component with state management
+├── main.jsx               # React DOM rendering entry point
+├── App.css                # Global styles
+├── index.css              # Base styles
+├── components/
+│   ├── ProductList.jsx    # Displays filtered products
+│   ├── ProductCard.jsx    # Individual product card
+│   ├── Cart.jsx           # Shopping cart display
+│   └── DarkModeToggle.jsx # Dark mode toggle component
+├── styles/
+│   ├── DarkMode.module.css    # Dark mode styling
+│   └── ProductCard.module.css  # Product card styling
+└── __tests__/
+    └── indexTest.js       # Test suite
 
----
+```
 
-## **Bonus Challenge: Cart Total**
-- Display a **cart total** showing how many items have been added.
-- The total should update dynamically when items are added.
+## Key Components
 
----
+### App.jsx
+The main component that manages:
+- **Dark mode state** – Toggle between light/dark themes
+- **Cart state** – Store added products
+- **Category filter state** – Track selected category
 
-## **Testing and Debugging**
-1. Run the test suite:
-   ```sh
-   npm test
-   ```
-2. Debug any failing tests:
-   - Use **browser developer tools** (`F12 → Console`).
-   - Verify that product cards display correctly.
-   - Ensure filtering and cart updates work as expected.
+### ProductList.jsx
+- Displays available products
+- Filters products based on selected category
+- Passes product data to ProductCard components
 
----
+### ProductCard.jsx
+- Renders individual product with name, price, and category
+- "Add to Cart" button functionality
+- Stock status display
 
-## **Version Control**
-1. Initialize a Git repository:
-   ```sh
-   git init
-   ```
-2. Regularly commit your changes:
-   ```sh
-   git add .
-   git commit -m "Initial shopping app setup"
-   ```
-3. Push to GitHub:
-   ```sh
-   git push origin main
-   ```
+### Cart.jsx
+- Shows all items added to the shopping cart
+- Displays formatted cart items with "Item is in your cart" message
 
----
+## 🧪 Testing
 
-### **✅ Submission**
-- Submit your project as a **GitHub repository** to CodeGrade.
+Run the test suite to verify functionality:
 
----
+```bash
+npm test
+```
 
-## **Resources**
-- [React Docs: useState](https://react.dev/reference/react/useState)
-- [Material UI Documentation](https://mui.com)
-- [CSS Modules Documentation](https://github.com/css-modules/css-modules)
+Tests cover:
+- Component rendering
+- State updates
+- Event handling
+- Filter functionality
+
+## 🛠️ Available Scripts
+
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Start development server with hot reload |
+| `npm test` | Run Jest test suite |
+| `npm run build` | Build optimized production bundle |
+
+## Technologies Used
+
+- **React 18** – UI library with hooks
+- **Vite** – Fast build tool and dev server
+- **Material-UI (MUI)** – Component library
+- **CSS Modules** – Scoped styling
+- **Jest** – Testing framework
+- **React Testing Library** – Component testing utilities
+
+## Learning Concepts
+
+This project practices:
+- **useState Hook** – Managing component state
+- **Event Handlers** – Handling user interactions (clicks, selections)
+- **Conditional Rendering** – Displaying content based on state
+- **Array Methods** – Filtering and mapping products
+- **Props** – Passing data between components
+- **CSS Modules** – Scoped component styling
+
+## Features Walkthrough
+
+### Dark Mode
+- Click the toggle button to switch themes
+- Button text updates dynamically (Dark Mode ↔ Light Mode)
+- Styles update based on the current theme
+
+### Product Filtering
+- Use the dropdown to select a category (All, Fruits, Dairy)
+- Product list updates automatically
+- Shows "no products available" if category has no items
+
+### Shopping Cart
+- Click "Add to Cart" on any product
+- Items appear in the Shopping Cart section
+- Cart displays item names with "is in your cart" format
+
+## Notes
+
+- Sample product data is defined in `ProductList.jsx`
+- Currently set to start in dark mode (`isDarkMode: true`)
+- Products can be duplicated in cart (same item multiple times)
+- No persistence - cart clears on page refresh
+
+## Contributing
+
+Feel free to extend this project with additional features:
+- Remove from cart functionality
+- Cart total price calculation
+- Local storage persistence
+- More product categories
+- Search functionality
+
+## Resources
+
+- [React Documentation](https://react.dev)
+- [React Hooks: useState](https://react.dev/reference/react/useState)
+- [Material-UI Components](https://mui.com)
+- [Vite Guide](https://vitejs.dev)
 - [Jest Testing Framework](https://jestjs.io/)
-- [React Testing Library](https://testing-library.com)
+
+## License
+
+This project is part of the Moringa School React Hooks curriculum.
+
+---
